@@ -9,9 +9,8 @@ pathes = []
 for path, currentDirectory, files in os.walk("/home"):
     for file in files:
         pathes.append((os.path.join(path, file)))
-
-#checking signatures with the database
-#dataset = pd.read_csv('database.csv')
+        
+#connecting with database
 conn=sqlite3.connect("signatures.db")
 c=conn.cursor()
 c.execute('''SELECT * FROM sign''')
